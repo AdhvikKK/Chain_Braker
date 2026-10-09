@@ -1,0 +1,9 @@
+{
+  "preset": "groq",
+  "apiKey": "",
+  "baseUrl": "",
+  "model": "openai/gpt-oss-20b",
+  "port": 8787,
+  "systemPromptOverride": "",
+  "extraBody": {}
+}

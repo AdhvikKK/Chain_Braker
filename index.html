@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Set up — ChainBreaker</title>
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b54e8'/%3E%3Cg fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' transform='translate(4 4)'%3E%3Cpath d='M12.6 8.4 15 6a4.6 4.6 0 0 1 6.5 6.5l-2.4 2.4'/%3E%3Cpath d='M11.4 15.6 9 18a4.6 4.6 0 0 1-6.5-6.5l2.4-2.4'/%3E%3C/g%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="setup.css" />
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("chainbreaker-theme");
+      var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", saved || (dark ? "dark" : "light"));
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body class="setup-body">
+
+<!-- ===================== WELCOME SPLASH =====================
+     Hides itself with pure CSS, so it can never trap the page even if
+     JavaScript fails to load. -->
+<div class="splash" id="splash" role="presentation">
+  <div class="splash-inner">
+    <div class="splash-mark">
+      <span class="splash-ring" aria-hidden="true"></span>
+      <svg class="icon" viewBox="0 0 24 24"><use href="#i-chain"/></svg>
+    </div>
+
+    <h1 class="splash-title">
+      <span class="splash-word" style="--i:0">Hello,</span>
+      <span class="splash-word" style="--i:1">welcome</span>
+      <span class="splash-word" style="--i:2">to</span>
+      <span class="splash-word splash-brand" style="--i:3">ChainBreaker</span>
+    </h1>
+
+    <p class="splash-sub" style="--i:4">
+      Your companion for the days that get away from you.
+    </p>
+  </div>
+</div>
+
+<svg class="sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-chain" viewBox="0 0 24 24">
+    <path d="M12.6 8.4 15 6a4.6 4.6 0 0 1 6.5 6.5l-2.4 2.4"/>
+    <path d="M11.4 15.6 9 18a4.6 4.6 0 0 1-6.5-6.5l2.4-2.4"/>
+    <path d="M10.2 13.8 13.8 10.2" stroke-dasharray="2 2.6"/>
+  </symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 4l1.9 5.6a2 2 0 0 0 1.2 1.2L21 13l-5.9 2.2a2 2 0 0 0-1.2 1.2L12 22l-1.9-5.6a2 2 0 0 0-1.2-1.2L3 13l5.9-2.2a2 2 0 0 0 1.2-1.2z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/><path d="M6 7h.01M6 17h.01"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24">
+    <circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8-8"/><path d="m17 6 2 2"/><path d="m14 9 2 2"/>
+  </symbol>
+</svg>
+
+<div class="setup">
+
+  <!-- ==================== SIDE PANEL ==================== -->
+  <aside class="setup-aside">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"><svg class="icon" viewBox="0 0 24 24"><use href="#i-chain"/></svg></span>
+      <span class="logo-text">Chain<span>Breaker</span></span>
+    </a>
+
+    <div class="aside-copy">
+      <h1>Let's introduce you to Kivd</h1>
+    </div>
+
+    <ol class="steps-nav" id="stepsNav">
+      <li class="is-active" data-stepnav="1">
+        <span class="steps-dot">1</span>
+        <span class="steps-text"><strong>About you</strong><em>Name, age, course</em></span>
+      </li>
+      <li data-stepnav="2">
+        <span class="steps-dot">2</span>
+        <span class="steps-text"><strong>What you're working on</strong><em>Goal and tone</em></span>
+      </li>
+      <li data-stepnav="3">
+        <span class="steps-dot">3</span>
+        <span class="steps-text"><strong>Kivd's connection</strong><em>Server and prompt</em></span>
+      </li>
+    </ol>
+
+    <p class="aside-foot">
+      Nothing here is uploaded anywhere. Your profile and conversations are stored on this
+      device only.
+    </p>
+  </aside>
+
+  <!-- ==================== MAIN ==================== -->
+  <main class="setup-main">
+
+
+    <form id="setupForm" novalidate>
+
+      <!-- ---------- STEP 1 ---------- -->
+      <section class="panel is-active" data-panel="1">
+        <header class="panel-head">
+          <p class="panel-kicker">Step 1 of 3</p>
+          <h2>Who are you?</h2>
+          <p>Kivd uses this to talk to you like a person instead of a stranger. It never asks again.</p>
+        </header>
+
+        <div class="panel-body">
+          <div class="field">
+            <label class="label" for="name">Your name <span class="opt">Required</span></label>
+            <input class="input" id="name" name="name" type="text" autocomplete="name"
+                   placeholder="e.g. Sam Adeyemi" />
+            <p class="field-error" id="nameError" hidden>Please enter a name so Kivd knows what to call you.</p>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label class="label" for="age">Age <span class="opt">Optional</span></label>
+              <input class="input" id="age" name="age" type="number" inputmode="numeric"
+                     min="10" max="100" placeholder="e.g. 19" />
+              <p class="field-error" id="ageError" hidden>Please enter an age between 10 and 100.</p>
+            </div>
+
+            <div class="field">
+              <label class="label" for="status">Right now I'm <span class="opt">Optional</span></label>
+              <select class="select" id="status" name="status">
+                <option value="">Prefer not to say</option>
+                <option value="student">A student</option>
+                <option value="working">Working</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- STEP 2 ---------- -->
+      <section class="panel" data-panel="2">
+        <header class="panel-head">
+          <p class="panel-kicker">Step 2 of 3</p>
+          <h2>What are you working on?</h2>
+          <p>One thing. It shapes how Kivd answers, and it becomes a suggestion you can tap later.</p>
+        </header>
+
+        <div class="panel-body">
+          <div class="field">
+            <label class="label" for="goal">The one thing you want to change <span class="opt">Optional</span></label>
+            <textarea class="textarea" id="goal" name="goal"
+                      placeholder="e.g. Stop scrolling until 3am on weeknights"></textarea>
+            <p class="hint">Be specific. "Sleep better" is harder to act on than "phone charges in the kitchen after dinner".</p>
+          </div>
+
+          <div class="field">
+            <span class="label">How direct should Kivd be?</span>
+            <div class="chipset" id="toneChips" role="group" aria-label="Preferred tone">
+              <button class="chip" type="button" data-tone="gentle" aria-pressed="false">Gentle</button>
+              <button class="chip is-active" type="button" data-tone="direct" aria-pressed="true">Direct</button>
+              <button class="chip" type="button" data-tone="blunt" aria-pressed="false">Blunt</button>
+            </div>
+            <p class="hint" id="toneHint">Name the problem plainly, without being harsh.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- STEP 3 ---------- -->
+      <section class="panel" data-panel="3">
+        <header class="panel-head">
+          <p class="panel-kicker">Step 3 of 3</p>
+          <h2>Connect Kivd</h2>
+          <p>
+            The key stays on this machine in <code>config.json</code> and is never sent to the
+            browser. This page just asks your local server whether it's ready.
+          </p>
+        </header>
+
+        <div class="panel-body">
+          <div class="conn" id="conn">
+            <span class="conn-icon" id="connIcon">
+              <svg class="icon" viewBox="0 0 24 24"><use href="#i-server"/></svg>
+            </span>
+            <div class="conn-body">
+              <strong id="connTitle">Checking your local server…</strong>
+              <p id="connMessage">Looking for a server on this address.</p>
+
+              <dl class="conn-meta" id="connMeta" hidden>
+                <div><dt>Provider</dt><dd id="connProvider">—</dd></div>
+                <div><dt>Model</dt><dd id="connModel">—</dd></div>
+                <div><dt>API key</dt><dd id="connKey">—</dd></div>
+              </dl>
+
+              <div class="conn-actions">
+                <button class="btn btn-secondary btn-sm" type="button" id="recheckBtn">
+                  <svg class="icon" viewBox="0 0 24 24"><use href="#i-refresh"/></svg>
+                  Check again
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- ACTIONS ---------- -->
+      <footer class="setup-actions">
+        <button class="btn btn-secondary" type="button" id="backBtn" hidden>
+          <svg class="icon" viewBox="0 0 24 24"><use href="#i-arrow-left"/></svg>
+          Back
+        </button>
+
+        <div class="setup-progress" aria-hidden="true"><i id="progressBar" style="width:33.333%"></i></div>
+
+        <button class="btn btn-primary" type="button" id="nextBtn">
+          Continue
+          <svg class="icon" viewBox="0 0 24 24"><use href="#i-arrow-right"/></svg>
+        </button>
+
+        <button class="btn btn-primary" type="submit" id="finishBtn" hidden>
+          <svg class="icon" viewBox="0 0 24 24"><use href="#i-check"/></svg>
+          Meet Kivd
+        </button>
+      </footer>
+    </form>
+  </main>
+</div>
+
+<script src="profile.js"></script>
+<script src="setup.js"></script>
+</body>
+</html>
